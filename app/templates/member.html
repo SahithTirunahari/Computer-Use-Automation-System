@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{% if member %}Member Details{% else %}Member Not Found{% endif %}{% endblock %}
+{% block content %}
+    {% if member %}
+    <h1>Member Details</h1>
+    <p class="subtitle">Member profile and savings account information</p>
+    <section class="card" aria-labelledby="profile-heading">
+        <h2 id="profile-heading">Member Information</h2>
+        <dl>
+            <dt>Member ID</dt><dd>{{ member_id }}</dd>
+            <dt>Member Name</dt><dd>{{ member.name }}</dd>
+            <dt>Status</dt><dd><span class="status{% if member.status == 'Restricted' %} restricted{% endif %}">{{ member.status }}</span></dd>
+        </dl>
+    </section>
+    <section class="card" aria-labelledby="savings-heading">
+        <h2 id="savings-heading">Savings Account</h2>
+        <dl>
+            <dt>Account Number</dt><dd>{{ member.account_number }}</dd>
+            <dt>Current Savings Balance</dt><dd class="balance">{{ balance }}</dd>
+        </dl>
+    </section>
+    {% else %}
+    <h1>Member Not Found</h1>
+    <section class="card">
+        <p>No member exists with ID {{ member_id }}.</p>
+    </section>
+    {% endif %}
+    <a class="back-link" href="{{ url_for('search') }}">Back to Search</a>
+{% endblock %}

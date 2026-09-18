@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Member Service Portal</h1>
+    <p class="subtitle">Internal Member Lookup</p>
+    <section class="card" aria-labelledby="lookup-heading">
+        <h2 id="lookup-heading">Find a member</h2>
+        <p>Enter a member ID to view member details and savings account information.</p>
+        <form action="{{ url_for('member_details') }}" method="get">
+            <label for="member-id">Member ID</label>
+            <p class="hint" id="member-id-hint">Enter the 5-digit member ID.</p>
+            {% if error %}
+            <p class="error" id="member-id-error" role="alert">{{ error }}</p>
+            {% endif %}
+            <div class="search-controls">
+                <input id="member-id" name="member_id" type="text" inputmode="numeric"
+                       value="{{ member_id }}" autocomplete="off"
+                       aria-describedby="member-id-hint{% if error %} member-id-error{% endif %}"
+                       {% if error %}aria-invalid="true"{% endif %}>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

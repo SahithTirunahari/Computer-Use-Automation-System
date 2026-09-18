@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+# Runtime evidence is private by default; only the reviewed bundle is publishable.
+/evidence/*
+!/evidence/submission/
+*.pem
+*.key
+# Local reproducibility/demo copies; retain the canonical versioned artifact.
+/capabilities/*.rebuilt.json
+/capabilities/*.rebuilt-*.json
+/capabilities/*.new.json

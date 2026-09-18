@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "name": "get_savings_balance",
+  "capability_version": "1.0.0",
+  "surface": "member-service-portal-web-v1",
+  "entry_path": "/",
+  "policy": "read-only-member-lookup-v1",
+  "target_resolution": "exactly-one-visible-match; no positional fallback",
+  "inputs": {
+    "member_id": {
+      "type": "string",
+      "pattern": "^[0-9]{5}$",
+      "required": true
+    }
+  },
+  "outputs": {
+    "member_id": {
+      "type": "string",
+      "source": {
+        "kind": "definition",
+        "label": "Member ID"
+      },
+      "pattern": "^[0-9]{5}$"
+    },
+    "savings_balance": {
+      "type": "string",
+      "source": {
+        "kind": "definition",
+        "label": "Current Savings Balance"
+      },
+      "pattern": "^\\$\\d{1,3}(?:,\\d{3})*\\.\\d{2}$"
+    }
+  },
+  "steps": [
+    {
+      "id": "step_1",
+      "action": "type",
+      "target": {
+        "kind": "role",
+        "role": "textbox",
+        "name": "Member ID"
+      },
+      "value": {
+        "input": "member_id"
+      }
+    },
+    {
+      "id": "step_2",
+      "action": "keypress",
+      "target": {
+        "kind": "role",
+        "role": "button",
+        "name": "Search"
+      },
+      "key": "Enter"
+    },
+    {
+      "id": "check_lookup_outcome",
+      "action": "await_outcome",
+      "timeout_ms": 10000,
+      "details": {
+        "heading": "Member Details",
+        "member_label": "Member ID",
+        "equals": {
+          "input": "member_id"
+        },
+        "then": "continue"
+      },
+      "not_found": {
+        "heading": "Member Not Found",
+        "message_template": "No member exists with ID {member_id}.",
+        "member_query_parameter": "member_id",
+        "equals": {
+          "input": "member_id"
+        },
+        "then": "return_business_outcome",
+        "code": "MEMBER_NOT_FOUND"
+      },
+      "on_timeout": "UNEXPECTED_STATE_OR_TIMEOUT",
+      "on_ambiguous": "AMBIGUOUS_OUTCOME"
+    },
+    {
+      "id": "step_3",
+      "action": "extract",
+      "target": {
+        "kind": "definition",
+        "label": "Member ID"
+      },
+      "output_name": "member_id"
+    },
+    {
+      "id": "step_4",
+      "action": "extract",
+      "target": {
+        "kind": "definition",
+        "label": "Current Savings Balance"
+      },
+      "output_name": "savings_balance"
+    }
+  ],
+  "success": {
+    "heading": "Member Details",
+    "identity_output": "member_id",
+    "equals": {
+      "input": "member_id"
+    },
+    "required_outputs": [
+      "member_id",
+      "savings_balance"
+    ],
+    "recheck_outputs_against_live_ui": true,
+    "status": "success",
+    "code": "GOAL_VERIFIED"
+  },
+  "provenance": {
+    "compiler": "portal-lookup-v1",
+    "successful_run": {
+      "run_id": "discovery-805b4a7f969f",
+      "sha256": "7d2b0070cc79bee6930ace9c2c1df0f8f7592d41d71c294dceecc0c91c2e10a9",
+      "outcome": "GOAL_VERIFIED",
+      "binding": "legacy_enforced_policy_migration"
+    },
+    "not_found_run": {
+      "run_id": "discovery-cc2eb3e3ac67",
+      "sha256": "0e68277339aa2873b263c377804def13b6498361b8ac3404bc956971f0d8db0e",
+      "outcome": "MEMBER_NOT_FOUND",
+      "binding": "legacy_enforced_policy_migration"
+    },
+    "outcome_rule_source": "portal-v1-reviewed-rule-backed-by-not-found-run"
+  }
+}

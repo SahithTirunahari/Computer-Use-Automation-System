@@ -1,0 +1,55 @@
+{
+  "description": "Reviewed original run files and canonical artifact; unchanged copies. Hashes verify content, not execution authenticity.",
+  "files": [
+    {
+      "path": "discovery-75d349e7911b/steps.jsonl",
+      "sha256": "ca691f767b4fa01fbbecf9ceaeda0939b6ef808ee01d34e87f2ab3b263d708d2",
+      "bytes": 6076
+    },
+    {
+      "path": "discovery-805b4a7f969f/steps.jsonl",
+      "sha256": "7d2b0070cc79bee6930ace9c2c1df0f8f7592d41d71c294dceecc0c91c2e10a9",
+      "bytes": 6078
+    },
+    {
+      "path": "discovery-cc2eb3e3ac67/steps.jsonl",
+      "sha256": "0e68277339aa2873b263c377804def13b6498361b8ac3404bc956971f0d8db0e",
+      "bytes": 3530
+    },
+    {
+      "path": "get_savings_balance.v1.json",
+      "sha256": "0f027e8743c0bd1b0347f260d0de7123c920e9c9481c53db0a5748ea60b946dd",
+      "bytes": 3256
+    },
+    {
+      "path": "replay-0a5de806ae15/steps.jsonl",
+      "sha256": "b688e20a5f0703cd0705e63e1d7cac09a955a5d3ea20291b22a84d2a90fc188f",
+      "bytes": 5382
+    },
+    {
+      "path": "replay-2afa8fb12f75/failure-dom.json",
+      "sha256": "fb4f94afb1dd9a34363e34d2ae3d9cee8ec8aff84304a155db06e879d571009c",
+      "bytes": 72
+    },
+    {
+      "path": "replay-2afa8fb12f75/steps.jsonl",
+      "sha256": "188dcd58e60b1047487f42e1b484edd29749bbcffe3488caf710e4aae839373f",
+      "bytes": 642
+    },
+    {
+      "path": "replay-c3d4344ad11c/steps.jsonl",
+      "sha256": "eaa64c33deae0cfc4a309ce75fe008e814e84493087981c28732183b163b7059",
+      "bytes": 2987
+    },
+    {
+      "path": "replay-c95afda1da1d/steps.jsonl",
+      "sha256": "8d753e60e1742e4c441e65fcc2a789e0eec915f11332a24cddffa2e59014dad9",
+      "bytes": 6481
+    },
+    {
+      "path": "replay-ff8e3c499ee2/steps.jsonl",
+      "sha256": "7cedf19cf6c6a6c9f9e81d319f34150c141a44048e729c44e230973e4cceef66",
+      "bytes": 5382
+    }
+  ]
+}

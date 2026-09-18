@@ -1,0 +1,45 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #243446;
+    background: #f3f5f7;
+    line-height: 1.5;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { width: min(100% - 40px, 800px); margin: 0 auto; }
+.site-header { background: #233b52; color: white; }
+.header-content { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; }
+.brand { color: white; font-weight: bold; text-decoration: none; }
+.environment { font-size: 12px; color: #e0e8ef; }
+main { padding: 36px 0; }
+h1 { font-size: 28px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 0 0 16px; }
+.subtitle { color: #596674; margin: 0 0 28px; }
+.card { background: white; border: 1px solid #d5dce3; border-radius: 5px; padding: 26px; margin-bottom: 20px; }
+.card > p:first-child { margin-top: 0; }
+label { display: block; font-weight: bold; margin-top: 24px; }
+.hint { font-size: 14px; color: #596674; margin: 4px 0 10px; }
+.search-controls { display: flex; gap: 12px; align-items: stretch; }
+input { min-width: 0; width: 300px; border: 1px solid #8996a3; border-radius: 4px; padding: 11px 12px; font: inherit; }
+button { background: #245b87; color: white; border: 1px solid #245b87; border-radius: 4px; padding: 11px 24px; font: inherit; font-weight: bold; cursor: pointer; }
+button:hover { background: #1b4669; }
+a { color: #245b87; }
+:focus-visible { outline: 3px solid #b56608; outline-offset: 3px; }
+.error { background: #fff2f0; color: #982820; border-left: 3px solid #b9362b; padding: 10px 12px; }
+input[aria-invalid="true"] { border-color: #b9362b; }
+dl { display: grid; grid-template-columns: 220px 1fr; gap: 16px; margin: 0; }
+dt { color: #596674; }
+dd { margin: 0; font-weight: bold; overflow-wrap: anywhere; }
+.status { display: inline-block; font-size: 14px; color: #245b40; background: #eaf4ee; border-radius: 3px; padding: 2px 9px; }
+.restricted { color: #805013; background: #fff1d8; }
+.balance { font-size: 23px; font-variant-numeric: tabular-nums; }
+.back-link { display: inline-block; margin-top: 4px; font-weight: bold; }
+footer { padding-bottom: 24px; color: #596674; font-size: 12px; }
+@media (max-width: 560px) {
+    .header-content { align-items: flex-start; flex-direction: column; gap: 4px; }
+    .card { padding: 20px; }
+    .search-controls { flex-direction: column; }
+    input { width: 100%; }
+    dl { grid-template-columns: 1fr; gap: 5px; }
+    dd { margin-bottom: 12px; }
+}

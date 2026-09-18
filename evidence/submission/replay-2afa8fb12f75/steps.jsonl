@@ -1,0 +1,3 @@
+{"event": "run_started", "mode": "deterministic_replay", "model_calls": 0, "capability": "get_savings_balance", "version": "1.0.0", "artifact_sha256": "0f027e8743c0bd1b0347f260d0de7123c920e9c9481c53db0a5748ea60b946dd", "timestamp": "2026-09-16T22:23:52.101833+00:00"}
+{"event": "step_failed", "step": 0, "code": "INVALID_INPUT", "timestamp": "2026-09-16T22:23:52.102758+00:00"}
+{"event": "result", "result": {"status": "failure", "code": "INVALID_INPUT", "outputs": {}, "step": 0, "expected": "Recorded control, supported outcome, and verified declared outputs", "observed": "INVALID_INPUT"}, "timestamp": "2026-09-16T22:23:52.104187+00:00"}
